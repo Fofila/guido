@@ -1,0 +1,20 @@
+{
+  "name": "guido",
+  "version": "1.0.0",
+  "description": "generator of unique IDs optimized",
+  "main": "genid.js",
+  "type": "module",
+  "scripts": {
+    "test": "nodejs test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fofila/guido.git"
+  },
+  "author": "Fofila",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fofila/guido/issues"
+  },
+  "homepage": "https://github.com/Fofila/guido#readme"
+}

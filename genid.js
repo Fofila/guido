@@ -1,6 +1,9 @@
-function get_pattern_combo(pattern, letter, symbol){
-  combo = 1
-  seq.forEach(element => {
+/*
+ * Function just to get an idea of how many IDs can be generated with a pattern
+ */
+export function get_pattern_combo(pattern, letter, symbol){
+  let combo = 1
+  pattern.split('').forEach(element => {
     switch (element) {
       case 'N':
         combo = combo * 10
@@ -9,10 +12,10 @@ function get_pattern_combo(pattern, letter, symbol){
         /*
          * TODO: consider lower and upper case letter
          */
-        combo = combo * 10 * allowed_letter.length
+        combo = combo * 10 * letter.length
         break;
       case 'S':
-        combo = combo * 10 * allowed_symbol.length
+        combo = combo * 10 * symbol.length
         break;
       default:
         console.error(`[GENID] Character ${element} not expected`)
@@ -21,6 +24,7 @@ function get_pattern_combo(pattern, letter, symbol){
   })
   return combo
 }
+
 /*
  * Given a string pattern in A (alphabetical), N (number) and S (symbol)
  * return a unique id after comparing it with the list of unique ids generate until now
@@ -30,7 +34,6 @@ function get_pattern_combo(pattern, letter, symbol){
  */
 export function genid (pattern="ANNANNA", allowed_letter=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"], allowed_symbol=["!","-","_","+","&"]){
   if(typeof(pattern) === 'string'){
-    console.info(`[GENID] Pattern given '${pattern}' has ${get_pattern_combo(pattern, allowed_letter, allowed_symbol)} combination`)
     let seq = pattern.toUpperCase().split('')
     let gen_str = ''
     seq.forEach(element => {
